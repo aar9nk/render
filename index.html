@@ -15,16 +15,16 @@
     <div class="d-flex justify-content-center my-5">
       <div>
         <div class="row">
-          <h1>Task App</h1>
+          <h1>Weather App</h1>
         </div>
         <div class="row mb-5">
-          <form id="new-task-form">
+          <form id="form">
             <div class="form-group">
-              <label for="new-task-name">Description</label>
+              <label for="city">city</label>
               <input
                 type="text"
                 class="form-control"
-                id="task-description"
+                id="city-input"
                 required
               />
               <div class="valid-feedback">Looks good!</div>
@@ -34,7 +34,7 @@
                 <button
                   type="submit"
                   class="btn btn-primary"
-                  id="task-submit"
+                  id="form-submit"
                 >
                   Submit
                 </button>
@@ -45,9 +45,9 @@
       </div>
     </div>
     <div class="task-list-container">
-      <h3 class="text-center">Tasks:</h3>
+      <h3 class="text-center">Weather</h3>
       <div class="d-flex justify-content-center">
-        <ul id="task-list" class="list-group"></ul>
+        <ul id="weather-list" class="list-group"></ul>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -59,8 +59,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-    <script src="js/taskManager.js"></script>
-    <script src="js/index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

@@ -1,32 +1,58 @@
-// select stuff
-const tasksList;
-
-let tasks = [];
-
-const addTask = (description) => {
-// let's push the description to the array 
+const serverData = {
+  weather: [
+    {
+      temp: 22,
+      cloudHeight: 300,
+    },
+    {
+      temp: 27,
+      cloudHeight: 300,
+    },
+    {
+      temp: 21,
+      cloudHeight: 300,
+    },
+    {
+      temp: 19,
+      cloudHeight: 300,
+    },
+    {
+      temp: 18,
+      cloudHeight: 300,
+    }
+  ],
+  id: 'whatever12345',
 }
 
-const createTaskHtml = (description) => {
-  return;
+let weather = [];
+
+const form = document.querySelector('#form');
+const input = document.querySelector('#city-input');
+const list = document.querySelector('#weather-list');
+
+const createWeatherData = () => { 
+  for(item of serverData.weather) {
+    weather.push(item.temp);
+  }
 }
 
-const render = () => {
-  let tasksHtmlList = [];
-  // Loop over our tasks and create the html, storing it in the array
-  for (let i = 0; i < tasks.length; i++) {
-    // Get the current task in the loop
-    const task = tasks[i];
-    // create the html
-    const taskHtml = createTaskHtml(task.description);
-    // Push it to the tasksHtmlList array
-    tasksHtmlList.push(taskHtml);
+const createHtml = (text) => {
+  return `
+    <li class="primary">${text}</li>
+  `;
+}
+
+const render = (array) => {
+  let finalHtml = '';
+  for(item of array) {
+    finalHtml = finalHtml + createHtml(item);
   }
 
-  // Create the tasksHtml by joining each item in the tasksHtmlList
-  // with a new line in between each item.
-  const htmlString = tasksHtmlList.join("\n");
-
-  // Set the inner html of the tasksList on the page
-  tasksList.innerHTML = htmlString;
+  list.innerHTML = finalHtml;
 }
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  createWeatherData();
+  render(weather);
+});
